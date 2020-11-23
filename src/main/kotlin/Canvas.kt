@@ -24,6 +24,7 @@ package draw
                 points.put(position, "X")
             }
         } catch (e: Exception) {
+            throw e
         }
     }
 
@@ -40,7 +41,7 @@ package draw
                 points.put(position, "X")
             }
         } catch (e: Exception) {
-            println(e.message)
+            throw e
         }
     }
 
