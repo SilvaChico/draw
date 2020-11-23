@@ -18,7 +18,7 @@ import kotlin.test.*
             canvas.render()
             assertTrue { false }
         } catch (e: Exception) {
-            assertTrue { e.message == "height must be greater than zero" }
+            assertTrue { e.message == "Height must be greater than zero" }
         }
     }
 
