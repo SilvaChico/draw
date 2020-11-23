@@ -40,10 +40,8 @@ class LineTest {
         val secondPosition = Position(1, 10)
         val line = Line(firstPosition, secondPosition)
         val linePositions = line.draw()
-        linePositions.forEachIndexed { index, value ->
-            assertTrue { value.x == 1 }
-            assertTrue { value.y == index }
-        }
+        for (i in (0..10))
+            assertTrue { linePositions.contains(Position(1, i)) }
          assertTrue { linePositions.size == 11 }
     }
 
@@ -52,10 +50,8 @@ class LineTest {
         val secondPosition = Position(10, 1)
         val line = Line(firstPosition, secondPosition)
         val linePositions = line.draw()
-        linePositions.forEachIndexed { index, value ->
-            assertTrue { value.x == index }
-            assertTrue { value.y == 1 }
-        }
-         assertTrue { linePositions.size == 11 }
+        for (i in (0..10))
+            assertTrue { linePositions.contains(Position(i, 1)) }
+        assertTrue { linePositions.size == 11 }
     }
 }
