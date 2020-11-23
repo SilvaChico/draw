@@ -22,3 +22,8 @@ To run tests:
 ```bash
 ./gradlew test
 ```
+
+## Design decisions
+Even though I had never worked with kotlin before I decided it would be a good chance to try it out.
+Please feel free to ask me any questions related with my solution.
+Hope you like it !
