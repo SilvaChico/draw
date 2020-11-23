@@ -20,7 +20,7 @@ class App {
                     command == "Q" -> return
                     else -> println("Command not valid, enter Q to quit or try again")
                 }
-                canvas ?.render()
+                print(canvas ?.render())
             }
         }
 

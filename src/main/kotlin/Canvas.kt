@@ -45,20 +45,22 @@ package draw
         }
     }
 
-    fun render() {
+    fun render(): String {
         val rows: IntRange = (0..height + 1)
         val columns: IntRange = (0..width + 1)
         var buffer: String
+        var canvasRender: String = ""
 
         for (y in rows) {
             for (x in columns) {
                 if (isFirstOrLastRow(y)) buffer = "-"
                 else if (isFirstOrLastColumn(x)) buffer = "|"
                 else buffer = points[Position(x, y)] ?: " "
-                print(buffer)
+                canvasRender += buffer
             }
-            print("\n")
+            canvasRender += "\n"
         }
+        return canvasRender
     }
 
     private fun isFirstOrLastRow(y: Int): Boolean {

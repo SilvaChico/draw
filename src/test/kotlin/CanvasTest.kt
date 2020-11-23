@@ -24,20 +24,20 @@ import kotlin.test.*
 
      @Test
     fun `draws a line`() {
-        val canvas = Canvas(20, 4)
+        val canvas = Canvas(6, 4)
+        val expectedOutput = "--------\n|      |\n|XXXXXX|\n|      |\n|      |\n--------\n"
         canvas.drawLine(1, 2, 6, 2)
-        canvas.render()
-        assertTrue { canvas.width == 20 }
-        assertTrue { canvas.height == 4 }
+        print(expectedOutput)
+        print(canvas.render())
+        assertTrue { canvas.render() == expectedOutput }
     }
 
      @Test
     fun `draws a rectangle`() {
-        val canvas = Canvas(20, 4)
-        canvas.drawRectangle(16, 1, 20, 3)
-        canvas.render()
-        assertTrue { canvas.width == 20 }
-        assertTrue { canvas.height == 4 }
+        val canvas = Canvas(6, 4)
+        val expectedOutput = "--------\n|      |\n|      |\n|XXXXXX|\n|XXXXXX|\n--------\n"
+        canvas.drawRectangle(1, 3, 6, 4)
+        assertTrue { canvas.render() == expectedOutput }
     }
 
     @Test
