@@ -22,7 +22,7 @@ tasks.withType<KotlinCompile>() {
     kotlinOptions.jvmTarget = "13"
 }
 application {
-    mainClassName = "draw.AppKt"
+    mainClass.set("draw.AppKt")
 }
 
 val run: JavaExec by tasks
