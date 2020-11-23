@@ -15,40 +15,52 @@ class App {
             if (!command.isNullOrEmpty())
                 when {
                     command.startsWith("C") -> createCanvas(command)
-                    command.startsWith("L") -> println("Not yet implemented")
-                    command.startsWith("R") -> println("Not yet implemented")
+                    command.startsWith("L") -> if (canvas != null) drawLine(command) else println("First create a canvas")
+                    command.startsWith("R") -> if (canvas != null) drawRectangle(command) else println("First create a canvas")
                     command == "Q" -> return
                     else -> println("Command not valid, enter Q to quit or try again")
                 }
-            val localCanvas = canvas
-            if (localCanvas != null)
-                localCanvas.render()
+                canvas ?.render()
             }
         }
 
         private fun createCanvas(command: String) {
             try {
-                val width = command.split(" ")[1].toInt()
-                val height = command.split(" ")[2].toInt()
-                if (! isValidValue(width) || ! isValidValue(height))
-                    println("Input values are not valid")
-                else
+                val (width, height) = command.split(" ").drop(1).map { it.toInt() }
                     canvas = Canvas(width, height)
                 } catch (e: Exception) {
                     println("Input values are not valid")
                     println(e.message)
                 }
+        }
+
+        private fun drawLine(command: String) {
+            try {
+                val (x1, y1, x2, y2) = getValues(command)
+                canvas ?.drawLine(x1, y1, x2, y2)
+                } catch (e: Exception) {
+                    println("Input values are not valid")
+                    println(e.message)
+                }
+        }
+
+        private fun drawRectangle(command: String) {
+            try {
+                val (x1, y1, x2, y2) = getValues(command)
+                canvas ?.drawRectangle(x1, y1, x2, y2)
+                } catch (e: Exception) {
+                    println("Input values are not valid")
+                    println(e.message)
+                }
+        }
+
+        private fun getValues(command: String): List<Int> {
+            var inputValues: List<Int>
+            try {
+                 inputValues = command.split(" ").drop(1).map { it.toInt() }
+            } catch (e: Exception) {
+                throw throw Exception("Please insert 4 positive numeric values ")
             }
-
-        // private fun isValidCommand(command: String?): Boolean {
-            //     if (command.isNullOrBlank()) return false
-    //     if (command.startsWith("C") || 
-    //     ((command.startsWith("L") || command.startsWith("R")) && !canvas.isNullOrBlank())
-    //         return true
-    //     return false
-    // }
-
-    private fun isValidValue(value: Int): Boolean {
-        return value >= 0
-    }
+            return inputValues
+        }
 }

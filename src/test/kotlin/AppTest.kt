@@ -29,4 +29,22 @@ class AppTest {
         val shouldQuitProgram = true
         assertTrue { shouldQuitProgram }
     }
+
+    @Test fun `draws a line`() {
+        val classUnderTest = App()
+        mockkStatic("kotlin.io.ConsoleKt")
+        every { readLine() } returns "L 1 2 6 2" andThen "Q"
+        classUnderTest.start()
+        val shouldQuitProgram = true
+        assertTrue { shouldQuitProgram }
+    }
+
+    @Test fun `draws a rectangle`() {
+        val classUnderTest = App()
+        mockkStatic("kotlin.io.ConsoleKt")
+        every { readLine() } returns "R 16 1 20 3" andThen "Q"
+        classUnderTest.start()
+        val shouldQuitProgram = true
+        assertTrue { shouldQuitProgram }
+    }
 }
