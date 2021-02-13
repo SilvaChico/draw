@@ -1,6 +1,6 @@
 # Drawing Program
 
-This program is able to create a canvas and drawings on the canvas by issuing various commands and quit. Its interface is the following:
+This program is able to create a canvas and drawings on the canvas by issuing various commands. Its interface is the following:
 
 |    Command    |                                                                                   Description                                                                                    |
 | :-----------: | :------------------------------------------------------------------------------------------------------------------------------------------------------------------------------: |
